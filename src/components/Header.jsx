@@ -5,13 +5,13 @@ const Header = () => {
     <div className="header-container">
       <div className="header-div">
         <div>
-          <img className="port-logo" src="../src/assets/newLogo1.png" />
+          <img className="port-logo" src="/assets/newLogo1.png" />
         </div>
         <div>
           <h1 className="header-title">Port Adelaide Memory Game</h1>
         </div>
         <div>
-          <img className="port-logo" src="../src/assets/newLogo1.png" />
+          <img className="port-logo" src="/assets/newLogo1.png" />
         </div>
       </div>
     </div>
