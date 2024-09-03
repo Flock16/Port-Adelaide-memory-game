@@ -1,0 +1,31 @@
+.header-container {
+  background: rgba(37, 140, 218);
+  background: linear-gradient(
+    360deg,
+    rgba(37, 140, 218, 1) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  margin: 0px;
+  height: 120px;
+}
+
+.header-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-top: 30px;
+  padding: 20px 40px 0px;
+
+  /* border: solid red; */
+}
+
+.port-logo {
+  height: 80px;
+}
+
+.header-title {
+  /* text-shadow: 4px 4px 10px rgba(255, 255, 255, 1); */
+  color: white;
+  font-size: 50px;
+}

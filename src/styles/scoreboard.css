@@ -1,0 +1,18 @@
+.scoreboard-container {
+  /* border: solid green; */
+  margin: 0px 20px;
+  height: 60px;
+  padding: 0px 30px 20px;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.instuctions {
+  color: white;
+  font-size: 20px;
+}
+
+.scoreBoard {
+  margin-right: 20px;
+}
