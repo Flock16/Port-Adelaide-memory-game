@@ -17,19 +17,15 @@ const Gameboard = ({
   // filteredPlayers.forEach((player) => console.log(player));
 
   const handlePlayerPicked = (player) => {
-    // console.log(player);
-
     if (arrayContainsObject(pickedPlayers, player)) {
       setPickedPlayers([]);
       handleResetScore();
     } else {
       setPickedPlayers([...pickedPlayers, player]);
       handleAddScore();
+      const shufflePlayers = [...shuffle(filteredPlayers)];
+      setFilteredPlayers(shufflePlayers);
     }
-
-    const shufflePlayers = [...shuffle(filteredPlayers)];
-    // console.log(shufflePlayers);
-    setFilteredPlayers(shufflePlayers);
   };
 
   return (

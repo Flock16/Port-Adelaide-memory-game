@@ -10,6 +10,7 @@ function App() {
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
   const [players, setPlayers] = useState([]);
+  const [difficultyLevel, setDifficultyLevel] = useState(12);
   const [filteredPlayers, setFilteredPlayers] = useState([]);
 
   useEffect(() => {
@@ -34,9 +35,17 @@ function App() {
   const handleResetScore = () => {
     setScore(0);
     if (highScore < score) setHighScore(score);
+
+    // Create new deck
+    const shuffledArray = shuffle(players);
+    console.log(shuffledArray);
+    const shortenedPlayerList = shuffledArray.slice(0, difficultyLevel);
+    console.log(shortenedPlayerList);
+    setFilteredPlayers(shortenedPlayerList);
   };
 
   const handleChangeDifficulty = (difficulty) => {
+    setDifficultyLevel(difficulty);
     setScore(0);
 
     const shuffledArray = shuffle(players);
