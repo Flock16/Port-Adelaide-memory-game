@@ -5,7 +5,12 @@ import PlayerCard from "./PlayerCard";
 import { shuffle } from "../utils/shuffleArray";
 import { arrayContainsObject } from "../utils/utilFunctions";
 
-const Gameboard = ({ handleAddScore, handleResetScore }) => {
+const Gameboard = ({
+  handleAddScore,
+  handleResetScore,
+  difficulty,
+  setScore,
+}) => {
   const [pickedPlayers, setPickedPlayers] = useState([]);
   const [players, setPlayers] = useState([]);
 
@@ -13,10 +18,12 @@ const Gameboard = ({ handleAddScore, handleResetScore }) => {
   useEffect(() => {
     // Mock API call
     const shuffledArray = shuffle(playersData);
-    const shortenedPlayerList = shuffledArray.slice(0, 12);
+    const shortenedPlayerList = shuffledArray.slice(0, difficulty);
     // console.log(shortenedPlayerList);
     setPlayers(shortenedPlayerList);
-  }, []);
+    setPickedPlayers([]);
+    setScore(0);
+  }, [difficulty, setScore]);
 
   const handlePlayerPicked = (player) => {
     // console.log(player);

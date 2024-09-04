@@ -6,6 +6,7 @@
 
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .instuctions {
@@ -15,4 +16,32 @@
 
 .scoreBoard {
   margin-right: 20px;
+}
+
+.diffucultyButton {
+  background-color: white;
+  border-radius: 20px;
+  margin-right: 10px;
+  height: 30px;
+  width: 62px;
+  text-align: center;
+  border: none;
+}
+
+.diffucultyButton:hover {
+  background-color: lightgray;
+}
+
+.lastDiffucultyButton {
+  background-color: white;
+  border-radius: 20px;
+  /* margin-right: 10px; */
+  height: 30px;
+  width: 62px;
+  text-align: center;
+  border: none;
+}
+
+.lastDiffucultyButton:hover {
+  background-color: lightgray;
 }

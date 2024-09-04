@@ -7,6 +7,7 @@ import Scoreboard from "./components/Scoreboard";
 function App() {
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
+  const [difficulty, setDifficulty] = useState(12);
 
   const handleAddScore = () => {
     setScore(score + 1);
@@ -24,10 +25,16 @@ function App() {
   return (
     <div>
       <Header />
-      <Scoreboard score={score} highScore={highScore} />
+      <Scoreboard
+        score={score}
+        highScore={highScore}
+        setDifficulty={setDifficulty}
+      />
       <Gameboard
         handleAddScore={handleAddScore}
         handleResetScore={handleResetScore}
+        difficulty={difficulty}
+        setScore={setScore}
       />
     </div>
   );
