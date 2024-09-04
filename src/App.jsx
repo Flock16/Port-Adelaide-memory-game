@@ -40,7 +40,7 @@ function App() {
     const shuffledArray = shuffle(players);
     // console.log(shuffledArray);
     const shortenedPlayerList = shuffledArray.slice(0, difficultyLevel);
-    console.log(shortenedPlayerList);
+    // console.log(shortenedPlayerList);
     setFilteredPlayers(shortenedPlayerList);
   };
 
