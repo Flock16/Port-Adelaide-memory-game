@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "../styles/gameboard.css";
-import { playersData } from "../utils/playerData";
+// import { playersData } from "../utils/playerData";
 import PlayerCard from "./PlayerCard";
 import { shuffle } from "../utils/shuffleArray";
 import { arrayContainsObject } from "../utils/utilFunctions";
@@ -8,22 +8,13 @@ import { arrayContainsObject } from "../utils/utilFunctions";
 const Gameboard = ({
   handleAddScore,
   handleResetScore,
-  difficulty,
-  setScore,
+  filteredPlayers,
+  setFilteredPlayers,
 }) => {
   const [pickedPlayers, setPickedPlayers] = useState([]);
-  const [players, setPlayers] = useState([]);
 
-  // useEffect to simulate an API call
-  useEffect(() => {
-    // Mock API call
-    const shuffledArray = shuffle(playersData);
-    const shortenedPlayerList = shuffledArray.slice(0, difficulty);
-    // console.log(shortenedPlayerList);
-    setPlayers(shortenedPlayerList);
-    setPickedPlayers([]);
-    setScore(0);
-  }, [difficulty, setScore]);
+  // console.log(filteredPlayers);
+  // filteredPlayers.forEach((player) => console.log(player));
 
   const handlePlayerPicked = (player) => {
     // console.log(player);
@@ -36,14 +27,14 @@ const Gameboard = ({
       handleAddScore();
     }
 
-    const shufflePlayers = [...shuffle(players)];
+    const shufflePlayers = [...shuffle(filteredPlayers)];
     // console.log(shufflePlayers);
-    setPlayers(shufflePlayers);
+    setFilteredPlayers(shufflePlayers);
   };
 
   return (
     <div className="gameboard-container">
-      {players.map((player) => {
+      {filteredPlayers.map((player) => {
         return (
           <PlayerCard
             player={player}

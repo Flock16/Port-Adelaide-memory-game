@@ -1,13 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Gameboard from "./components/Gameboard";
 import Header from "./components/Header";
 import Scoreboard from "./components/Scoreboard";
+import { playersData } from "./utils/playerData";
+import { shuffle } from "./utils/shuffleArray";
 
 function App() {
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
-  const [difficulty, setDifficulty] = useState(12);
+  const [players, setPlayers] = useState([]);
+  const [filteredPlayers, setFilteredPlayers] = useState([]);
+
+  useEffect(() => {
+    // Mock API call
+    const data = playersData;
+
+    setPlayers(data);
+
+    const shuffledArray = shuffle(data);
+    const shortenedPlayerList = shuffledArray.slice(0, 12);
+    setFilteredPlayers(shortenedPlayerList);
+  }, []);
 
   const handleAddScore = () => {
     setScore(score + 1);
@@ -22,19 +36,27 @@ function App() {
     if (highScore < score) setHighScore(score);
   };
 
+  const handleChangeDifficulty = (difficulty) => {
+    setScore(0);
+
+    const shuffledArray = shuffle(players);
+    const shortenedPlayerList = shuffledArray.slice(0, difficulty);
+    setFilteredPlayers(shortenedPlayerList);
+  };
+
   return (
     <div>
       <Header />
       <Scoreboard
         score={score}
         highScore={highScore}
-        setDifficulty={setDifficulty}
+        handleChangeDifficulty={handleChangeDifficulty}
       />
       <Gameboard
         handleAddScore={handleAddScore}
         handleResetScore={handleResetScore}
-        difficulty={difficulty}
-        setScore={setScore}
+        filteredPlayers={filteredPlayers}
+        setFilteredPlayers={setFilteredPlayers}
       />
     </div>
   );

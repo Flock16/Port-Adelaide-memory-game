@@ -1,6 +1,6 @@
 import "../styles/scoreboard.css";
 
-const Scoreboard = ({ score, highScore, setDifficulty }) => {
+const Scoreboard = ({ score, highScore, handleChangeDifficulty }) => {
   return (
     <div className="scoreboard-container">
       <div>
@@ -13,7 +13,7 @@ const Scoreboard = ({ score, highScore, setDifficulty }) => {
         <button
           className="diffucultyButton"
           onClick={() => {
-            setDifficulty(12);
+            handleChangeDifficulty(12);
           }}
         >
           Easy
@@ -21,7 +21,7 @@ const Scoreboard = ({ score, highScore, setDifficulty }) => {
         <button
           className="diffucultyButton"
           onClick={() => {
-            setDifficulty(16);
+            handleChangeDifficulty(16);
           }}
         >
           Medium
@@ -29,7 +29,7 @@ const Scoreboard = ({ score, highScore, setDifficulty }) => {
         <button
           className="lastDiffucultyButton"
           onClick={() => {
-            setDifficulty(20);
+            handleChangeDifficulty(20);
           }}
         >
           Hard
