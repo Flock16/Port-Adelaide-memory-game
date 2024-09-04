@@ -38,7 +38,7 @@ function App() {
 
     // Create new deck
     const shuffledArray = shuffle(players);
-    console.log(shuffledArray);
+    // console.log(shuffledArray);
     const shortenedPlayerList = shuffledArray.slice(0, difficultyLevel);
     console.log(shortenedPlayerList);
     setFilteredPlayers(shortenedPlayerList);
